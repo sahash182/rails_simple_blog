@@ -1,0 +1,12 @@
+<div class="col-sm-4 col-sm-offset-4">
+  <legend>Edit Blog</legend>
+  <%= form_for @blog do |b| %>
+    <%= b.label :title  %>:
+     <%= b.text_field :title, class:"form-control" %><br />
+     <%= b.label :content %>:
+     <%= b.text_field :content, class:"form-control" %><br />
+     <%= b.submit "Save Blog", class:"btn btn-primary" %>
+  <% end %>
+</div>
+
+

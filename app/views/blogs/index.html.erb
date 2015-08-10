@@ -1,0 +1,41 @@
+<div class='jumbotron'>
+    <div class="container">
+      <h1>Blog</h1>
+      <% if current_user %> 
+    		<p><%= current_user.email %></p> 
+    		<p><%= link_to "Log Out",  logout_path, method: "delete", class: "btn btn-danger" %></p>
+		<% else %> 
+  			<p><%= link_to "Sign Up", signup_path , class: "btn btn-primary" %></p>
+			<p><%= link_to "Log In", login_path , class: "btn btn-primary" %></p>
+		<% end %> 
+    </div>
+ </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+    	<br>
+     	<% if current_user %>
+	    <%= link_to "Add New Blog", new_blog_path, class:"btn btn-lg btn-primary" %>
+	    <% end %>  
+    
+    <% @blogs.each do |b| %>
+      <div class="well col-xs-12">
+        <h5><%= b.title %> - <%= b.content %><br> <%= link_to "VIew Blog",  blog_path(b), class: "btn btn-info" %></h5> 
+      </div>
+    <% end %>
+	</div>
+  </div>
+</div>
+
+
+<!-- 
+
+<% @blogs.each do |b| %> 
+	<p> <%= b.title %> - <%= b.content %> <%= link_to "VIew Blog", blog_path(b) %> </p>
+<% end %>
+
+<% if current_user %>
+	<hr>
+	<%= link_to "Add New Blog", new_blog_path %>
+<% end %>  -->

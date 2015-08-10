@@ -1,0 +1,18 @@
+<div class="col-sm-4 col-sm-offset-4">
+  <legend>New Blog</legend>
+  <%= form_for @blog do |b| %>
+    <%= b.label :title  %>:
+     <%= b.text_field :title, class:"form-control" %><br />
+     <%= b.label :content %>:
+     <%= b.text_field :content, class:"form-control" %><br />
+     <%= b.submit "Save Blog", class:"btn btn-primary" %>
+  <% end %>
+</div>
+
+
+<!-- <h1>New Blog</h1>
+<%= form_for @blog do |b| %>
+	<%= b.text_field :title, placeholder: "Title" %><br>
+	<%= b.text_field :content, placeholder: "Content" %><br><hr>
+	<%= b.submit "Save Blog" %>
+<% end %>  -->

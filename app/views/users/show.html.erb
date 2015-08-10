@@ -1,0 +1,60 @@
+<div class='jumbotron'>
+    <div class="container">
+      <legend> Welcome to your Profile Page</legend>
+      <% if current_user %> 
+    		<h2><%= current_user.first_name %></h2> 
+        <%= link_to "Add New Blog", new_blog_path, class:"btn btn-lg btn-primary" %>
+    		<p><%= link_to "Log out",  logout_path, method: "delete", class: "btn btn-danger" %></p>
+		<% else %> 
+  			<p><%= link_to "Sign Up", signup_path , class: "btn btn-primary" %></p>
+			<p><%= link_to "Log In", login_path , class: "btn btn-primary" %></p>
+		<% end %> 
+    </div>
+ </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+    	<br>
+     	  <% if current_user.blog.any? %>
+     		<h3> My Blogs</h3>
+     		<% current_user.blog.each do |b| %>
+      			<div class="well col-xs-12">
+        			<h5><%= b.title %> - <%= b.content %></h5>
+              <p> <%= link_to "VIew Blog",  blog_path(b), class: "btn btn-info" %> </p>
+      			</div>
+        <% end %>
+      	<% else %>
+      		<h4>You don't have any blog! </h4>
+	    	<%= link_to "Add New Blog", new_blog_path, class:"btn btn-primary" %>
+	    <% end %>  
+
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
+<!-- 
+
+<h1>Profile Page</h1>
+<div>
+	<p><%= current_user.first_name %></p>
+	<p><%= current_user.last_name %></p>
+	<p><%= current_user.email %></p>
+</div>
+
+<% if current_user.blog.any? %>
+	<h3>My blogs</h3>
+	<% current_user.blog.each do |b| %>
+		<p><%= b.title %> - <%= b.content %></p>
+	<% end %>
+<% else %>
+	<h4>You don't have any blog </h4>
+	<%= link_to "Add Blog", new_blog_path %>
+<% end %> -->
+
+

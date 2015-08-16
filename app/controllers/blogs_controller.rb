@@ -46,7 +46,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog = Blog.find(params[:id])
     if current_user.blog.include? @blog
-      @blog.destroy
+      @blog.destroy(@blog)
       redirect_to profile_path, :notice => "Sucessfully Deleted"
     else
       redirect_to root_path
